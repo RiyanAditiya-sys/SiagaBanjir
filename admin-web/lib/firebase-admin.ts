@@ -8,13 +8,24 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 function getServiceAccount() {
-  const envCredential = process.env.FIREBASE_SERVICE_ACCOUNT;
+  // Production: gunakan Environment Variables Vercel
+  if (process.env.VERCEL) {
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY;
 
-  if (envCredential) {
-    return JSON.parse(envCredential);
+    if (!projectId || !clientEmail || !privateKey) {
+      throw new Error("Firebase Admin environment variables belum lengkap.");
+    }
+
+    return {
+      projectId,
+      clientEmail,
+      privateKey: privateKey.replace(/\\n/g, "\n"),
+    };
   }
 
-  // Fallback untuk development lokal
+  // Lokal: gunakan file service account
   const serviceAccountPath = join(
     process.cwd(),
     "credentials",
