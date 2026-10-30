@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "909131885449",
+    "project_id": "siagabanjir-327b7",
+    "storage_bucket": "siagabanjir-327b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909131885449:android:54dc9e5de05680edd0cf58",
+        "android_client_info": {
+          "package_name": "com.example.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3s-Lh9n647pIuLcWP47vznymrePlZ2Ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909131885449:android:e7fc49e5986cd1ebd0cf58",
+        "android_client_info": {
+          "package_name": "com.example.reliefnet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3s-Lh9n647pIuLcWP47vznymrePlZ2Ww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

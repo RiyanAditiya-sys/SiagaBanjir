@@ -1,0 +1,20 @@
+﻿# Environment dan rahasia
+**/.env
+**/.env.*
+**/credentials/
+**/*service-account*.json
+**/*firebase-adminsdk*.json
+
+# Dependencies dan build
+**/node_modules/
+**/.next/
+**/.vercel/
+**/build/
+**/.dart_tool/
+**/.flutter-plugins-dependencies/
+**/.pub-cache/
+
+# IDE dan sistem
+**/.idea/
+**/.DS_Store
+*.log
