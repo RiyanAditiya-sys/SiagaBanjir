@@ -7,21 +7,28 @@ import { getFirestore } from "firebase-admin/firestore";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-const serviceAccountPath = join(
-  process.cwd(),
-  "credentials",
-  "firebase-service-account.json"
-);
+function getServiceAccount() {
+  const envCredential = process.env.FIREBASE_SERVICE_ACCOUNT;
 
-const serviceAccount = JSON.parse(
-  readFileSync(serviceAccountPath, "utf8")
-);
+  if (envCredential) {
+    return JSON.parse(envCredential);
+  }
+
+  // Fallback untuk development lokal
+  const serviceAccountPath = join(
+    process.cwd(),
+    "credentials",
+    "firebase-service-account.json"
+  );
+
+  return JSON.parse(readFileSync(serviceAccountPath, "utf8"));
+}
 
 const adminApp =
   getApps().find((app) => app.name === "admin") ??
   initializeApp(
     {
-      credential: cert(serviceAccount),
+      credential: cert(getServiceAccount()),
     },
     "admin"
   );
